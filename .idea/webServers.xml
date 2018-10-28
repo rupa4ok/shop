@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="12665d88-16d6-4804-b677-3886896ec116" name="shop" url="http://s15958@h4.modhost.pro">
+        <fileTransfer host="s15958@h4.modhost.pro" port="22" rootFolder="/home/s15958/www" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
