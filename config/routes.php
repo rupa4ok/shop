@@ -7,7 +7,8 @@
  */
 
 return array(
-    
     'product/([0-9]+)' => 'product/view/$1', //Обработка продуктов
-    '' => 'site/index',
+    'catalog' => 'catalog/index', //Страница каталога
+    'category/([0-9]+)' => 'catalog/category/$1', //Страница категории
+    '' => 'site/index', //Главная страница
 );

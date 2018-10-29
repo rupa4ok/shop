@@ -1,53 +1,8 @@
 <?php
 require_once (ROOT.'/views/parts/head.php');
 require_once (ROOT.'/views/parts/header.php');
+require_once (ROOT.'/views/parts/leftmenu.php');
 ?>
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="left-sidebar">
-                    <h2>Каталог</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Категория</a></h4>
-                            </div>
-                        </div>
-                    </div><!--/category-products-->
-                
-                </div>
-            </div>
             
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
@@ -60,10 +15,10 @@ require_once (ROOT.'/views/parts/header.php');
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
                                 <img src="images/product-details/new.jpg" class="newarrival" alt="" />
-                                <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
-                                <p>Код товара: 1089772</p>
+                                <h2><?php echo $product['name'] ?></h2>
+                                <p>Код товара: <?php echo $product['code'] ?></p>
                                 <span>
-                                            <span>US $59</span>
+                                            <span><?php echo $product['price'] . 'руб' ?></span>
                                             <label>Количество:</label>
                                             <input type="text" value="3" />
                                             <button type="button" class="btn btn-fefault cart">
