@@ -26,7 +26,7 @@ require_once (ROOT.'/views/parts/leftmenu.php');
                                 </div>
                             <?php endforeach; ?>
                         </div><!--features_items-->
-
+                        <?php echo $pagination->get(); ?>
                     </div>
                 </div>
             </div>
