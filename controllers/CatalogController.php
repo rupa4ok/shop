@@ -9,6 +9,7 @@
 
 include_once ROOT.'/models/Category.php';
 include_once ROOT.'/models/Product.php';
+include_once ROOT.'/components/Pagination.php';
 
 class CatalogController
 {
@@ -19,7 +20,7 @@ class CatalogController
         $categories = Category::getCategoryList();
         
         $latestProduct = array();
-        $latestProduct = Product::getLatestProduct(10);
+        $latestProduct = Product::getLatestProduct(6);
         
         require_once (ROOT.'/views/catalog/index.php');
         
@@ -34,6 +35,11 @@ class CatalogController
         
         $categoryProducts = array();
         $categoryProducts = Product::getProductListByCategory($categoryId,$page);
+        
+        $total = Product::getTotalProductInCategory($categoryId);
+        
+        //Создаем постраничную навигацию
+        $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
     
         require_once (ROOT.'/views/catalog/category.php');
     
