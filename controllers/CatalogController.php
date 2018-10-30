@@ -26,13 +26,14 @@ class CatalogController
         return true;
     }
     
-    public function actionCategory($categoryId)
+    public function actionCategory($categoryId,$page = 1)
     {
+        
         $categories = array();
         $categories = Category::getCategoryList();
         
         $categoryProducts = array();
-        $categoryProducts = Product::getProductListByCategory($categoryId);
+        $categoryProducts = Product::getProductListByCategory($categoryId,$page);
     
         require_once (ROOT.'/views/catalog/category.php');
     

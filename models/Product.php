@@ -9,7 +9,7 @@
 class Product
 {
     
-    const SHOW_BY_DEFAULT = 10;
+    const SHOW_BY_DEFAULT = 6;
     
     public static function getLatestProduct($count = self::SHOW_BY_DEFAULT)
     {
@@ -31,22 +31,29 @@ class Product
         return $productList;
     }
     
-    public static function getProductListByCategory($categoryId = false)
+    public static function getProductListByCategory($categoryId = false,$page = 1)
     {
-        $db = Db::getConnection();
-        $products = array();
-        $count = self::SHOW_BY_DEFAULT;
-        $result = $db->query("SELECT id,name,price,image,is_new,status FROM product WHERE status = 1 AND category_id = $categoryId
-        ORDER BY id DESC LIMIT $count");
+        
+        if ($categoryId) {
+            $page = intval($page);
+            
+            $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
     
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $productList[$i]['id'] = $row['id'];
-            $productList[$i]['name'] = $row['name'];
-            $productList[$i]['image'] = $row['image'];
-            $productList[$i]['price'] = $row['price'];
-            $productList[$i]['is_new'] = $row['is_new'];
-            $i++;
+            $db = Db::getConnection();
+            $productList = array();
+            $count = self::SHOW_BY_DEFAULT;
+            $result = $db->query("SELECT id,name,price,image,is_new,status FROM product WHERE status = 1 AND category_id = $categoryId
+        ORDER BY id DESC LIMIT $count OFFSET $offset");
+    
+            $i = 0;
+            while ($row = $result->fetch()) {
+                $productList[$i]['id'] = $row['id'];
+                $productList[$i]['name'] = $row['name'];
+                $productList[$i]['image'] = $row['image'];
+                $productList[$i]['price'] = $row['price'];
+                $productList[$i]['is_new'] = $row['is_new'];
+                $i++;
+            }
         }
         
         return $productList;
