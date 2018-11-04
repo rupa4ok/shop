@@ -45,7 +45,6 @@ class UserController
         }
         
         require_once (ROOT.'/views/user/register.php');
-        
         return true;
     }
 }

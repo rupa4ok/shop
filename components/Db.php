@@ -19,6 +19,7 @@ class Db
         // Получаем параметры подключения из файла
         $paramsPath = ROOT . '/config/dbconfig.php';
         $params = include($paramsPath);
+        
         // Устанавливаем соединение
         $dsn = "mysql:host={$params['host']};dbname={$params['dbname']}";
         $db = new PDO($dsn, $params['user'], $params['password'],[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);

@@ -12,5 +12,6 @@ return array(
     'category/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2', //Страница пагинации
     'category/([0-9]+)' => 'catalog/category/$1', //Страница категории
     'user/register' => 'user/register', //Страница регистрации
+    'cabinet' => 'cabinet/index',//Страница личного кабинета
     '' => 'site/index', //Главная страница
 );
