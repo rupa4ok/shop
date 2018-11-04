@@ -13,10 +13,14 @@ require_once (ROOT.'/views/parts/header.php');
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-4 padding-right">
+            <div class="col-md-12">
                 <div class="signup-form">
                     <h2>Кабинет пользователя</h2>
-                    Тест
+                    <h3>Привет, <?php echo $user['name'] ?></h3>
+                    <ul>
+                        <li><a href="/cabinet/edit">Редактрировать данные</a></li>
+                        <li><a href="/cabinet/history">Список покупок</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
